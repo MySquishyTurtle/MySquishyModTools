@@ -17,9 +17,14 @@ buildscript {
 
 apply plugin: 'forge'
 
+compileJava {
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+}
+
 version = "1.0"
-group= "com.yourname.modid" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
-archivesBaseName = "modid"
+group= "le.mysquishyturt.mysquishymodtools" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
+archivesBaseName = "mysquishymodtools"
 
 minecraft {
     version = "1.8-11.14.1.1341"
