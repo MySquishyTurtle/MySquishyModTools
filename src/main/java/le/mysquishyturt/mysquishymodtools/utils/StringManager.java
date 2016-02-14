@@ -1,5 +1,7 @@
 package le.mysquishyturt.mysquishymodtools.utils;
 
+import java.util.List;
+
 public class StringManager {
 
     public enum EnumTextColor {
@@ -37,5 +39,13 @@ public class StringManager {
         public String getColorString() {
             return "\u00a7" + this.index;
         }
+    }
+
+    public static String join(List<String> list) {
+        String result = "";
+        for(String s : list) {
+            result += s + ", ";
+        }
+        return result.substring(0, result.length() - 2);
     }
 }

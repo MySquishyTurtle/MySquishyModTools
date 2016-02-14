@@ -9,15 +9,7 @@ public class StringReferences {
     public static final String serverSide = "le.mysquishyturt.mysquishymodtools.proxies.ServerProxy";
     public static final String modEnabled = "MySquishyModTools enabled.";
     public static final String modDisabled = "MySquishyModTools disabled.";
-    public static String[] banReasons = new String[] {
-            "Aimbot;Hacking - Aimbot",
-            "NoKnockback; Hacking - NoKnockback",
-            "Fly;Hacking - Fly",
-            "Speed;Hacking - Speed",
-            "NoSlowdown;Hacking - NoSlowdown",
-            "InstantBow;Hacking - InstantBow",
-            "NoFall;Hacking - NoFall",
-            "Water Walk;Hacking - Water Walk",
+    public static String[] punishReasons = new String[] {
             "Hackusating; Do not accuse players of hacking in chat. Use /report.",
             "Hackusating [ES];No acuses a otros jugadores de hacks. Usa /report. Do not accuse others of hacking.",
             "Disrespecful;Be respectful to other players.",
@@ -26,6 +18,19 @@ public class StringReferences {
             "Spam [ES];Por favor, no hagas spam en el chat. Do not spam.",
             "Casual Atmosphere;Please maintain a calm, casual atmosphere.",
             "Casual Atmosphere [ES];Por favor, mantén un ambiente calmado en el chat.",
-            "Block Glitching;Do not block glitch."
+            "Block Glitching;Do not block glitch.",
+            "Team Griefing TNT;Do not blow up your own team's side with TNT.",
+            "Team Griefing Defenses;Do not destroy your own team's defenses.",
+    };
+    public static String[] hacks = new String[] {
+            "Aimbot",
+            "NoKnockback",
+            "Fly",
+            "Speed",
+            "NoSlowdown",
+            "Water Walk",
+            "No Fall",
+            "Instant Bow",
+            "Spider"
     };
 }

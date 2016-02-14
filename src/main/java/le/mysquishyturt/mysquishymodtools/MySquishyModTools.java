@@ -14,6 +14,7 @@ public class MySquishyModTools {
 
     private static MySquishyModTools instance;
     public String[] pairs;
+    public String[] hacks;
 
     public static MySquishyModTools getInstance() {
         return instance;
@@ -29,7 +30,8 @@ public class MySquishyModTools {
 
         Configuration config = new Configuration(event.getSuggestedConfigurationFile());
 
-        pairs = config.get(Configuration.CATEGORY_GENERAL, "Punishment_Reasons", StringReferences.banReasons).getStringList();
+        pairs = config.get(Configuration.CATEGORY_GENERAL, "Punishment_Reasons", StringReferences.punishReasons).getStringList();
+        hacks = config.get(Configuration.CATEGORY_GENERAL, "Hacks", StringReferences.hacks).getStringList();
     }
 
     @Mod.EventHandler

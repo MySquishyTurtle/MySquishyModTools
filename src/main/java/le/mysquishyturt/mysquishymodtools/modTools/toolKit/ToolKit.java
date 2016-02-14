@@ -3,6 +3,7 @@ package le.mysquishyturt.mysquishymodtools.modTools.toolKit;
 import le.mysquishyturt.mysquishymodtools.keyBindings.KeyBindings;
 import le.mysquishyturt.mysquishymodtools.modTools.GiveItemRunnable;
 import le.mysquishyturt.mysquishymodtools.modTools.ModTools;
+import le.mysquishyturt.mysquishymodtools.modTools.tools.LatchTool;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.client.gui.inventory.CreativeCrafting;

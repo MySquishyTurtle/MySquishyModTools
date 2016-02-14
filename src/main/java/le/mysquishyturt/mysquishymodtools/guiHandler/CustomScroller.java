@@ -11,7 +11,7 @@ import java.util.Map;
 public class CustomScroller extends GuiScrollingList {
     Map<String, String> punishmentMessages;
     Minecraft mc;
-    int selectedIndex = -1;
+    public int selectedIndex = -1;
     String shortName;
 
     public CustomScroller(Minecraft client, int width, int height, int top, int bottom, int left, int entryHeight) {
