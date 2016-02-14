@@ -6,6 +6,7 @@ import le.mysquishyturt.mysquishymodtools.guiHandler.GuiHandler;
 import le.mysquishyturt.mysquishymodtools.keyBindings.KeyBindings;
 import le.mysquishyturt.mysquishymodtools.modTools.ModTools;
 import le.mysquishyturt.mysquishymodtools.modTools.toolKit.ToolKit;
+import le.mysquishyturt.mysquishymodtools.modTools.tools.FreezeKey;
 import le.mysquishyturt.mysquishymodtools.modTools.tools.GamemodeChanger;
 import le.mysquishyturt.mysquishymodtools.modTools.tools.LatchTool;
 import le.mysquishyturt.mysquishymodtools.modTools.tools.LookupTool;
@@ -24,10 +25,12 @@ public class ClientProxy extends CommonProxy {
     public void preInit(FMLPreInitializationEvent event) {
 
         FMLCommonHandler.instance().bus().register(ConnectionHandler.getInstance());
+        FMLCommonHandler.instance().bus().register(FreezeKey.getInstance());
         FMLCommonHandler.instance().bus().register(GamemodeChanger.getInstance());
         FMLCommonHandler.instance().bus().register(LatchTool.getInstance());
         FMLCommonHandler.instance().bus().register(LookupTool.getInstance());
         FMLCommonHandler.instance().bus().register(ModTools.getInstance());
+        FMLCommonHandler.instance().bus().register(PunishmentTool.getInstance());
         FMLCommonHandler.instance().bus().register(StaffInfoFilter.getInstance());
         FMLCommonHandler.instance().bus().register(ToolKit.getInstance());
 
