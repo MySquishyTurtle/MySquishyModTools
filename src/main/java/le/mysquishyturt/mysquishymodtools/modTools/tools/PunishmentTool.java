@@ -32,7 +32,7 @@ public class PunishmentTool {
                 }
                 if (player.getHeldItem().getItem().equals(Item.getByNameOrId("279"))) {
                     this.target = event.target.getName();
-                    minecraft.thePlayer.openGui(MySquishyModTools.getInstance(), 2, minecraft.thePlayer.getEntityWorld(), (int) minecraft.thePlayer.posX, (int) minecraft.thePlayer.posY, (int) minecraft.thePlayer.posZ);
+                    minecraft.thePlayer.openGui(MySquishyModTools.getInstance(), 0, minecraft.thePlayer.getEntityWorld(), (int) minecraft.thePlayer.posX, (int) minecraft.thePlayer.posY, (int) minecraft.thePlayer.posZ);
                 }
             }
         }

@@ -9,6 +9,10 @@ public class StringReferences {
     public static final String serverSide = "le.mysquishyturt.mysquishymodtools.proxies.ServerProxy";
     public static final String modEnabled = "MySquishyModTools enabled.";
     public static final String modDisabled = "MySquishyModTools disabled.";
+    public static final String adminChatMessage = "\\[A\\]\\s([\\w\\W])*";
+    public static final String ratingMessage = "(Someone on)\\s([\\w\\W\\s])*";
+    public static final String reportMessage = "\\[Rep\\]\\s([\\w\\W\\s])*";
+    public static final String reportMessage2 = "\\s\\s([\\W\\w\\s])*";
     public static String[] punishReasons = new String[] {
             "Hackusating; Do not accuse players of hacking in chat. Use /report.",
             "Hackusating [ES];No acuses a otros jugadores de hacks. Usa /report. Do not accuse others of hacking.",

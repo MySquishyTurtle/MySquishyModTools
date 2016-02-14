@@ -10,7 +10,6 @@ import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.client.gui.GuiButton;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.renderer.GlStateManager;
-import net.minecraft.util.ChatComponentText;
 
 public class PunishmentGui extends GuiScreen {
     CustomScroller scroller;

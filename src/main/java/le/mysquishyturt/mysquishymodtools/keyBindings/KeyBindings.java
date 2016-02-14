@@ -15,6 +15,7 @@ public class KeyBindings {
         return instance;
     }
 
+    public static KeyBinding filter;
     public static KeyBinding gamemode;
     public static KeyBinding kit;
     public static KeyBinding teleport;
@@ -22,11 +23,13 @@ public class KeyBindings {
 
     public static void init() {
 
+        filter = new KeyBinding("key.tools.filter", Keyboard.KEY_U, "key.categories.MySquishyModTools");
         gamemode = new KeyBinding("key.tools.gamemode", Keyboard.KEY_G, "key.categories.MySquishyModTools");
         kit = new KeyBinding("key.tools.kit", Keyboard.KEY_R, "key.categories.MySquishyModTools");
         teleport = new KeyBinding("key.tools.teleport", Keyboard.KEY_X, "key.categories.MySquishyModTools");
         toggleMod = new KeyBinding("key.tools.toggle", Keyboard.KEY_Y, "key.categories.MySquishyModTools");
 
+        ClientRegistry.registerKeyBinding(filter);
         ClientRegistry.registerKeyBinding(gamemode);
         ClientRegistry.registerKeyBinding(kit);
         ClientRegistry.registerKeyBinding(teleport);

@@ -48,4 +48,14 @@ public class StringManager {
         }
         return result.substring(0, result.length() - 2);
     }
+
+    public static String colorBoolean(String string) {
+        if (string.equals("true")) {
+            return EnumTextColor.BRIGHT_GREEN.ColorString("True");
+        }
+        if (string.equals("false")) {
+            return EnumTextColor.RED.ColorString("False");
+        }
+        return string;
+    }
 }
