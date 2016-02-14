@@ -6,13 +6,13 @@ import net.minecraft.client.Minecraft;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.InputEvent;
 
-public class GamemodeTool {
+public class GamemodeChanger {
 
-    private static GamemodeTool instance;
+    private static GamemodeChanger instance;
 
-    public static GamemodeTool getInstance() {
+    public static GamemodeChanger getInstance() {
         if (instance == null) {
-            instance = new GamemodeTool();
+            instance = new GamemodeChanger();
         }
         return instance;
     }
