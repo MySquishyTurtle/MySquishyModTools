@@ -17,7 +17,7 @@ public class StringReferences {
     public static String[] punishReasons = new String[] {
             "Hackusating; Do not accuse players of hacking in chat. Use /report.",
             "Hackusating [ES];No acuses a otros jugadores de hacks. Usa /report. Do not accuse others of hacking.",
-            "Disrespecful;Be respectful to other players.",
+            "Disrespectful;Be respectful to other players.",
             "Disrespectful [ES];Sé respetuoso hacia los otros jugadores en el chat. Be respectful.",
             "Spam;Do not spam the chat.",
             "Spam [ES];Por favor, no hagas spam en el chat. Do not spam.",

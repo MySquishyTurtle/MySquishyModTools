@@ -32,6 +32,8 @@ public class MySquishyModTools {
 
         pairs = config.get(Configuration.CATEGORY_GENERAL, "Punishment_Reasons", StringReferences.punishReasons).getStringList();
         hacks = config.get(Configuration.CATEGORY_GENERAL, "Hacks", StringReferences.hacks).getStringList();
+
+        config.save();
     }
 
     @Mod.EventHandler
