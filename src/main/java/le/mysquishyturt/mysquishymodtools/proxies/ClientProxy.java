@@ -26,6 +26,7 @@ public class ClientProxy extends CommonProxy {
         FMLCommonHandler.instance().bus().register(ConnectionHandler.getInstance());
         FMLCommonHandler.instance().bus().register(GamemodeTool.getInstance());
         FMLCommonHandler.instance().bus().register(LatchTool.getInstance());
+        FMLCommonHandler.instance().bus().register(LookupTool.getInstance());
         FMLCommonHandler.instance().bus().register(ModTools.getInstance());
         FMLCommonHandler.instance().bus().register(StaffInfoFilter.getInstance());
         FMLCommonHandler.instance().bus().register(ToolKit.getInstance());
