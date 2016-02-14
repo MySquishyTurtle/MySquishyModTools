@@ -8,6 +8,7 @@ import le.mysquishyturt.mysquishymodtools.utils.StringManager;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.util.ChatComponentText;
+import net.minecraftforge.client.event.ClientChatReceivedEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.InputEvent;
 
@@ -24,7 +25,7 @@ public class ModTools {
 
     public static boolean isEnabled;
 
-    public void setEnabled() { // Make it so that you can decide whether it enables by default in the config.
+    public void setEnabled() {
         if (ConnectionHandler.getInstance().isPlayingOvercast) {
             isEnabled = true;
         }
@@ -46,5 +47,12 @@ public class ModTools {
         }
     }
 
-
+    @SubscribeEvent
+    public void playerReceiveChat(ClientChatReceivedEvent event) {
+        if (ModTools.isEnabled && event.message.getUnformattedText().matches(StringReferences.joinMessage)) {
+            ModTools.isEnabled = false;
+            LatchTool.getInstance().isAttached = false;
+            LatchTool.getInstance().targetName = null;
+        }
+    }
 }

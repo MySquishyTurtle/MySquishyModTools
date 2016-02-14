@@ -33,6 +33,7 @@ public class ClientProxy extends CommonProxy {
 
         MinecraftForge.EVENT_BUS.register(LatchTool.getInstance());
         MinecraftForge.EVENT_BUS.register(LookupTool.getInstance());
+        MinecraftForge.EVENT_BUS.register(ModTools.getInstance());
         MinecraftForge.EVENT_BUS.register(PunishmentTool.getInstance());
         MinecraftForge.EVENT_BUS.register(RenderHandler.getInstance());
         MinecraftForge.EVENT_BUS.register(StaffInfoFilter.getInstance());
