@@ -22,7 +22,7 @@ compileJava {
     targetCompatibility = 1.8
 }
 
-version = "1.1"
+version = "1.1.1"
 group= "le.mysquishyturt.mysquishymodtools" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "mysquishymodtools"
 

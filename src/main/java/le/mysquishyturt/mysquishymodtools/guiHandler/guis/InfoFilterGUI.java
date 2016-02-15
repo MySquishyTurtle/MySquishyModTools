@@ -1,5 +1,7 @@
 package le.mysquishyturt.mysquishymodtools.guiHandler.guis;
 
+import le.mysquishyturt.mysquishymodtools.MySquishyModTools;
+import le.mysquishyturt.mysquishymodtools.connectionHandler.ConnectionHandler;
 import le.mysquishyturt.mysquishymodtools.modTools.ModTools;
 import le.mysquishyturt.mysquishymodtools.modTools.tools.LatchTool;
 import le.mysquishyturt.mysquishymodtools.modTools.tools.StaffInfoFilter;
@@ -25,7 +27,7 @@ public class InfoFilterGUI extends GuiScreen {
 
         adminChat = new GuiButton(0, xoffset - 175, yoffset, 100, 20, "Admin Chat");
         this.buttonList.add(adminChat);
-        modTools = new GuiButton(1, xoffset - 62, yoffset, 100, 20, "Mod Tools");
+        modTools = new GuiButton(1, xoffset - 62, yoffset, 100, 20, "Mod");
         this.buttonList.add(modTools);
         ratings = new GuiButton(2, xoffset + 62, yoffset, 100, 20, "Ratings");
         this.buttonList.add(ratings);
@@ -43,7 +45,7 @@ public class InfoFilterGUI extends GuiScreen {
         GlStateManager.color(1f, 1f, 1f, 1f);
 
         minecraft.fontRendererObj.drawString(StringManager.colorBoolean(String.valueOf(filter.adminChat)), xoffset - 185, yoffset + 25, 0xFFFFFF);
-        minecraft.fontRendererObj.drawString(StringManager.colorBoolean(String.valueOf(ModTools.isEnabled)), xoffset - 75, yoffset + 25, 0xFFFFFF);
+        minecraft.fontRendererObj.drawString(StringManager.colorBoolean(String.valueOf(MySquishyModTools.isEnabled)), xoffset - 75, yoffset + 25, 0xFFFFFF);
         minecraft.fontRendererObj.drawString(StringManager.colorBoolean(String.valueOf(filter.ratings)), xoffset + 50, yoffset + 25, 0xFFFFFF);
         minecraft.fontRendererObj.drawString(StringManager.colorBoolean(String.valueOf(filter.reports)), xoffset + 163, yoffset + 25, 0xFFFFFF);
 
@@ -56,11 +58,20 @@ public class InfoFilterGUI extends GuiScreen {
             filter.adminChat = !filter.adminChat;
         }
         if (button == modTools) {
-            ModTools.isEnabled = !ModTools.isEnabled;
-            if (!ModTools.isEnabled) {
-                LatchTool.getInstance().isAttached = false;
-                LatchTool.getInstance().targetName = null;
+            if (!ConnectionHandler.getInstance().isPlayingOvercast) {
+                return;
             }
+            MySquishyModTools.isEnabled = !MySquishyModTools.isEnabled;
+            if (!MySquishyModTools.isEnabled) {
+                ModTools.featuresAreEnabled = false;
+            }
+            if (MySquishyModTools.isEnabled) {
+                if (minecraft.playerController.isInCreativeMode() || minecraft.playerController.isSpectatorMode()) {
+                    ModTools.featuresAreEnabled = true;
+                }
+            }
+            LatchTool.getInstance().isAttached = false;
+            LatchTool.getInstance().targetName = null;
         }
         if (button == ratings) {
             filter.ratings = !filter.ratings;

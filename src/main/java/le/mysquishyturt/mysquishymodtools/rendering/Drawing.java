@@ -30,11 +30,15 @@ public class Drawing {
         }
     }
 
-    public static void renderTargetToGui(String text) {
+    public static void renderModStatusToGui(String text) {
         Minecraft minecraft = Minecraft.getMinecraft();
         if ((minecraft.inGameHasFocus || (minecraft.currentScreen != null && (minecraft.currentScreen instanceof GuiChat))) && !minecraft.gameSettings.showDebugInfo) {
-            int x = 5;
-            int y = 5;
+            ScaledResolution res = new ScaledResolution(minecraft, minecraft.displayWidth, minecraft.displayHeight);
+            int width = res.getScaledWidth();
+            int height = res.getScaledHeight();
+
+            int x = width - 100;
+            int y = height - 25;
             int color = 0xffffff;
             minecraft.fontRendererObj.drawStringWithShadow(text, x, y, color);
         }

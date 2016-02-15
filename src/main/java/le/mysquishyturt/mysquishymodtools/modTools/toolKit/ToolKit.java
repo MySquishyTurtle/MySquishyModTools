@@ -38,7 +38,7 @@ public class ToolKit {
     @SubscribeEvent
     public void onEntityWorldJoin(EntityJoinWorldEvent event) {
         if (lastWorld != event.world) {
-            if (ModTools.isEnabled) {
+            if (ModTools.featuresAreEnabled) {
                 new Thread(new GiveItemRunnable()).start();
             }
             lastWorld = event.world;
@@ -47,7 +47,7 @@ public class ToolKit {
 
     public void giveInventory() {
         EntityPlayerSP player = Minecraft.getMinecraft().thePlayer;
-        if (ModTools.isEnabled && player.capabilities.isCreativeMode) {
+        if (ModTools.featuresAreEnabled && player.capabilities.isCreativeMode) {
             CreativeCrafting crafting = new CreativeCrafting(minecraft);
             player.inventoryContainer.addCraftingToCrafters(crafting);
             player.inventory.setInventorySlotContents(0, new ItemStack(Item.getByNameOrId("345")));

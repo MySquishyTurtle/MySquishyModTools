@@ -21,7 +21,7 @@ public class GamemodeChanger {
 
     @SubscribeEvent
     public void onKeyInput(InputEvent.KeyInputEvent event) {
-        if (ModTools.isEnabled) {
+        if (ModTools.featuresAreEnabled) {
             if (KeyBindings.gamemode.isPressed()) {
                 if (minecraft.playerController.isInCreativeMode()) {
                     minecraft.thePlayer.sendChatMessage("/gamemode 3");

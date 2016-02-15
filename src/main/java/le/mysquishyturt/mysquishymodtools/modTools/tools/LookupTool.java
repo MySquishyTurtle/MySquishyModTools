@@ -23,7 +23,7 @@ public class LookupTool {
     @SubscribeEvent
     public void onPlayerHit(AttackEntityEvent event) {
         String targetName;
-        if (ModTools.isEnabled) {
+        if (ModTools.featuresAreEnabled) {
             if (event.entity instanceof EntityPlayer) {
                 EntityPlayer player = (EntityPlayer) event.entity;
                 if (player.getHeldItem() == null || !(event.target instanceof EntityPlayer)) {
@@ -39,7 +39,7 @@ public class LookupTool {
 
     @SubscribeEvent
     public void onKeyInput(InputEvent.KeyInputEvent event) {
-        if (ModTools.isEnabled) {
+        if (ModTools.featuresAreEnabled) {
             if (KeyBindings.lookup.isPressed()) {
                 if (LatchTool.getInstance().isAttached && LatchTool.getInstance().targetName != null) {
                     Minecraft.getMinecraft().thePlayer.sendChatMessage("/lookup " + LatchTool.getInstance().targetName);

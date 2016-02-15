@@ -31,7 +31,7 @@ public class LatchTool {
 
     @SubscribeEvent
     public void onPlayerHit(AttackEntityEvent event) {
-        if (ModTools.isEnabled) {
+        if (ModTools.featuresAreEnabled) {
             if (event.entity instanceof EntityPlayer) {
                 EntityPlayer player = (EntityPlayer) event.entity;
                 if (player.getHeldItem() == null || !(event.target instanceof EntityPlayer)) {
@@ -48,7 +48,7 @@ public class LatchTool {
 
     @SubscribeEvent
     public void onKeyInput(InputEvent.KeyInputEvent event) {
-        if (ModTools.isEnabled && isAttached) {
+        if (ModTools.featuresAreEnabled && isAttached) {
             if (targetName != null) {
                 if (KeyBindings.teleport.isPressed()) {
                     Minecraft.getMinecraft().thePlayer.sendChatMessage("/rtp " + targetName);

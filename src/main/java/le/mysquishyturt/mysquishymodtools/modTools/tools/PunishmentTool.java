@@ -26,7 +26,7 @@ public class PunishmentTool {
 
     @SubscribeEvent
     public void onPlayerHit(AttackEntityEvent event) {
-        if (ModTools.isEnabled) {
+        if (ModTools.featuresAreEnabled) {
             if (event.entity instanceof EntityPlayer) {
                 EntityPlayer player = (EntityPlayer) event.entity;
                 if (player.getHeldItem() == null || !(event.target instanceof EntityPlayer)) {

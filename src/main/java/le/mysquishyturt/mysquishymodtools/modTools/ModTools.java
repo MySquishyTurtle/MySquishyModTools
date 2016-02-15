@@ -1,8 +1,10 @@
 package le.mysquishyturt.mysquishymodtools.modTools;
 
+import le.mysquishyturt.mysquishymodtools.MySquishyModTools;
 import le.mysquishyturt.mysquishymodtools.connectionHandler.ConnectionHandler;
 import le.mysquishyturt.mysquishymodtools.events.PlayerGamemodeChangeEvent;
 import le.mysquishyturt.mysquishymodtools.keyBindings.KeyBindings;
+import le.mysquishyturt.mysquishymodtools.modTools.toolKit.ToolKit;
 import le.mysquishyturt.mysquishymodtools.modTools.tools.LatchTool;
 import le.mysquishyturt.mysquishymodtools.reference.StringReferences;
 import le.mysquishyturt.mysquishymodtools.utils.StringManager;
@@ -14,6 +16,7 @@ import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.InputEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
+import scala.reflect.runtime.ThreadLocalStorage;
 
 public class ModTools {
 
@@ -28,26 +31,25 @@ public class ModTools {
         return instance;
     }
 
-    public static boolean isEnabled;
+    public static boolean featuresAreEnabled;
 
-    public void setEnabled() {
-        if (ConnectionHandler.getInstance().isPlayingOvercast) {
-            isEnabled = true;
-        }
+    public void setEnabled(boolean state) {
+        ModTools.featuresAreEnabled = state;
+        LatchTool.getInstance().isAttached = false;
+        LatchTool.getInstance().targetName = null;
     }
 
     @SubscribeEvent
     public void onInputKey(InputEvent.KeyInputEvent event) {
         EntityPlayerSP player = Minecraft.getMinecraft().thePlayer;
         if (KeyBindings.toggleMod.isPressed()) {
-            if (isEnabled) {
+            if (MySquishyModTools.isEnabled) {
                 player.addChatComponentMessage(new ChatComponentText(StringManager.EnumTextColor.AQUA.ColorString("[MSMT] " + StringManager.EnumTextColor.RED.ColorString(StringReferences.modDisabled))));
-                LatchTool.getInstance().isAttached = false;
-                LatchTool.getInstance().targetName = null;
-                isEnabled = false;
-            } else if (ConnectionHandler.getInstance().isPlayingOvercast()) {
+                MySquishyModTools.getInstance().setIsEnabled(false);
+            } else if (ConnectionHandler.getInstance().isPlayingOvercast) {
                 player.addChatComponentMessage(new ChatComponentText(StringManager.EnumTextColor.AQUA.ColorString("[MSMT] " + StringManager.EnumTextColor.BRIGHT_GREEN.ColorString(StringReferences.modEnabled))));
-                isEnabled = true;
+                MySquishyModTools.getInstance().setIsEnabled(true);
+                ToolKit.getInstance().giveInventory();
             }
         }
     }
@@ -77,9 +79,15 @@ public class ModTools {
     @SubscribeEvent
     public void onGamemodeChange(PlayerGamemodeChangeEvent event) {
         if (minecraft.playerController.getCurrentGameType().isSurvivalOrAdventure()) {
-            ModTools.isEnabled = false;
-            LatchTool.getInstance().isAttached = false;
-            LatchTool.getInstance().targetName = null;
+            if (MySquishyModTools.isEnabled && ModTools.featuresAreEnabled) {
+                setEnabled(false);
+            }
+        }
+        if (minecraft.playerController.getCurrentGameType().isCreative()) {
+            if (MySquishyModTools.isEnabled && !ModTools.featuresAreEnabled) {
+                setEnabled(true);
+                ToolKit.getInstance().giveInventory();
+            }
         }
     }
 }

@@ -1,6 +1,6 @@
 package le.mysquishyturt.mysquishymodtools.connectionHandler;
 
-import le.mysquishyturt.mysquishymodtools.modTools.ModTools;
+import le.mysquishyturt.mysquishymodtools.MySquishyModTools;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.ServerData;
 import net.minecraft.util.IThreadListener;
@@ -14,17 +14,13 @@ import java.util.logging.Logger;
 public class ConnectionHandler {
 
     private static ConnectionHandler instance;
-    public boolean isPlayingOvercast;
+    public boolean isPlayingOvercast = false;
 
     public static ConnectionHandler getInstance() {
         if (instance == null) {
             instance = new ConnectionHandler();
         }
         return instance;
-    }
-
-    public boolean isPlayingOvercast() {
-        return isPlayingOvercast;
     }
 
     @SideOnly(Side.CLIENT)
@@ -36,9 +32,10 @@ public class ConnectionHandler {
             if (!(serverData == null) && serverData.serverIP.equals("us.oc.tc")) {
                 Logger.getGlobal().info("Connected to us.oc.tc");
                 isPlayingOvercast = true;
-                ModTools.getInstance().setEnabled();
+                MySquishyModTools.isEnabled = true;
             } else {
                 System.out.println("Uh oh");
+                MySquishyModTools.isEnabled = false;
             }
         });
     }
