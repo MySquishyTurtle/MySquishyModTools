@@ -29,8 +29,8 @@ public class ConnectionHandler {
         IThreadListener mainThread = Minecraft.getMinecraft();
         mainThread.addScheduledTask(() -> {
             ServerData serverData = Minecraft.getMinecraft().getCurrentServerData();
-            if (!(serverData == null) && serverData.serverIP.equals("us.oc.tc")) {
-                Logger.getGlobal().info("Connected to us.oc.tc");
+            if (!(serverData == null) && serverData.serverIP.contains("oc.tc")) {
+                Logger.getGlobal().info("Connected to an Overcast service");
                 isPlayingOvercast = true;
                 MySquishyModTools.isEnabled = true;
             } else {

@@ -12,6 +12,7 @@ import le.mysquishyturt.mysquishymodtools.modTools.tools.LatchTool;
 import le.mysquishyturt.mysquishymodtools.modTools.tools.LookupTool;
 import le.mysquishyturt.mysquishymodtools.modTools.tools.PunishmentTool;
 import le.mysquishyturt.mysquishymodtools.modTools.tools.StaffInfoFilter;
+import le.mysquishyturt.mysquishymodtools.modTools.tools.ToggleTextKey;
 import le.mysquishyturt.mysquishymodtools.rendering.RenderHandler;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.FMLCommonHandler;
@@ -32,6 +33,7 @@ public class ClientProxy extends CommonProxy {
         FMLCommonHandler.instance().bus().register(ModTools.getInstance());
         FMLCommonHandler.instance().bus().register(PunishmentTool.getInstance());
         FMLCommonHandler.instance().bus().register(StaffInfoFilter.getInstance());
+        FMLCommonHandler.instance().bus().register(ToggleTextKey.getInstance());
         FMLCommonHandler.instance().bus().register(ToolKit.getInstance());
 
         MinecraftForge.EVENT_BUS.register(LatchTool.getInstance());

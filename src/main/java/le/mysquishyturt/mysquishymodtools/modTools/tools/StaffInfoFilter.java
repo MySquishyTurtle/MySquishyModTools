@@ -37,6 +37,9 @@ public class StaffInfoFilter {
         if (!reports && event.message.getUnformattedText().matches(StringReferences.reportMessage2)) {
             event.setCanceled(true);
         }
+        if (!reports && event.message.getUnformattedText().startsWith("NCP: ")) {
+            event.setCanceled(true);
+        }
     }
 
     @SubscribeEvent

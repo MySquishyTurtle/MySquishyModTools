@@ -23,6 +23,7 @@ public class KeyBindings {
     public static KeyBinding punish;
     public static KeyBinding teleport;
     public static KeyBinding toggleMod;
+    public static KeyBinding toggleScreenText;
 
     public static void init() {
 
@@ -34,6 +35,7 @@ public class KeyBindings {
         punish =  new KeyBinding("key.tools.punish", Keyboard.KEY_K, "key.categories.MySquishyModTools");
         teleport = new KeyBinding("key.tools.teleport", Keyboard.KEY_X, "key.categories.MySquishyModTools");
         toggleMod = new KeyBinding("key.tools.toggle", Keyboard.KEY_Y, "key.categories.MySquishyModTools");
+        toggleScreenText = new KeyBinding("key.tools.toggleScreenText", Keyboard.KEY_I, "key.categories.MySquishyModTools");
 
         ClientRegistry.registerKeyBinding(filter);
         ClientRegistry.registerKeyBinding(freeze);
@@ -43,5 +45,6 @@ public class KeyBindings {
         ClientRegistry.registerKeyBinding(punish);
         ClientRegistry.registerKeyBinding(teleport);
         ClientRegistry.registerKeyBinding(toggleMod);
+        ClientRegistry.registerKeyBinding(toggleScreenText);
     }
 }
